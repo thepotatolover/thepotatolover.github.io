@@ -63,3 +63,17 @@ body, html {
     display: inline-block;
     font-size: 16px;
   }
+
+  .buttons {
+    text-align: center;
+}
+
+.buttons img{
+    padding: 2px;
+    transition: transform 5s;
+    transition-timing-function: ease;
+}
+
+.buttons img:hover {
+    transform: scale(5);
+}   
