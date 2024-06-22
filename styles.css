@@ -52,7 +52,9 @@ body, html {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    margin-right: 5px;
   }
+
 .button1 {
     background-color: #05945f; /* Green */
     border: none;
@@ -62,7 +64,8 @@ body, html {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-  }
+    margin-left: 7px;
+}
 
   .buttons {
     text-align: center;
