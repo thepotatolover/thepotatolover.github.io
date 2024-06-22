@@ -1,5 +1,5 @@
 :root {
-	background: linear-gradient(-45deg, #7b1fa2, #9c27b0, #673ab7, #3f51b5, #45475a);
+	background: linear-gradient(-45deg, #661a86, #ab34c0, #6439af, #3f51b5, #3e4055);
 	background-size: 400% 400%;
 	animation: gradient 25s ease infinite;
 	height: 100vh;
@@ -53,6 +53,7 @@ body, html {
     display: inline-block;
     font-size: 16px;
   }
+
 .button1 {
     background-color: #05945f; /* Green */
     border: none;
