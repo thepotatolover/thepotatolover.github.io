@@ -67,13 +67,14 @@ body, html {
     margin-left: 7px;
 }
 
-  .buttons {
+.buttons {
     text-align: center;
 }
 
 .buttons img{
     padding: 2px;
     transition: transform 5s;
+    image-rendering: pixelated;
     transition-timing-function: ease;
 }
 
