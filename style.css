@@ -27,6 +27,7 @@ body {
     text-align: left;
     padding: 60px;
     box-shadow: 0 0 10px rgb(69, 71, 90);
+    border-radius: 10px;
 }
 a:visited { 
     color: #89b4fa;
