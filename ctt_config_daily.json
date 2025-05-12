@@ -1,0 +1,40 @@
+{
+  "WPFInstall": [],
+  "WPFFeature": [
+    "WPFFeatureDisableSearchSuggestions",
+    "WPFFeaturesdotnet",
+    "WPFFeaturewsl",
+    "WPFFeatureshyperv"
+  ],
+  "Install": [],
+  "WPFTweaks": [
+    "WPFTweaksConsumerFeatures",
+    "WPFTweaksRemoveHomeGallery",
+    "WPFTweaksDeleteTempFiles",
+    "WPFTweaksLoc",
+    "WPFTweaksWifi",
+    "WPFTweaksRemoveOnedrive",
+    "WPFTweaksTele",
+    "WPFTweaksUTC",
+    "WPFTweaksDisableBGapps",
+    "WPFTweaksRightClickMenu",
+    "WPFTweaksDVR",
+    "WPFTweaksRemoveCopilot",
+    "WPFTweaksRemoveEdge",
+    "WPFTweaksTeredo",
+    "WPFTweaksDebloatAdobe",
+    "WPFTweaksEndTaskOnTaskbar",
+    "WPFTweaksPowershell7Tele",
+    "WPFTweaksRazerBlock",
+    "WPFTweaksHome",
+    "WPFTweaksEdgeDebloat",
+    "WPFTweaksIPv46",
+    "WPFTweaksPowershell7",
+    "WPFTweaksStorage",
+    "WPFTweaksDisableWpbtExecution",
+    "WPFTweaksDisableLMS1",
+    "WPFTweaksDiskCleanup",
+    "WPFTweaksHiber",
+    "WPFTweaksServices"
+  ]
+}
