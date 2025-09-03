@@ -3,96 +3,580 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My website :3</title>
-    <meta content="Potato site" property="og:title">
-    <meta content="mrrp mrrp mreow :3, silly" property="og:description">
-    <script src="script.js"></script>
-    <link rel="stylesheet" href="style.css?v=1.1.1.1">
+    <title>Tom's Digital Den :3</title>
+    <meta content="Tom's Potato Site" property="og:title">
+    <meta content="mrrp mrrp mreow :3, silly tech enthusiast and gamer" property="og:description">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-tertiary: #21262d;
+            --accent-purple: #8b5cf6;
+            --accent-blue: #3b82f6;
+            --accent-pink: #ec4899;
+            --text-primary: #f0f6fc;
+            --text-secondary: #9d9d9d;
+            --text-accent: #58a6ff;
+            --border-color: #30363d;
+            --shadow-glow: rgba(139, 92, 246, 0.3);
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--bg-primary) 0%, #1a0d2e 100%);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Animated background elements */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(236, 72, 153, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+            z-index: -1;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, -30px) rotate(120deg); }
+            66% { transform: translate(-20px, 20px) rotate(240deg); }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(22, 27, 34, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            padding: 12px 24px;
+            z-index: 1000;
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateX(-50%) translateY(-100px); opacity: 0; }
+            to { transform: translateX(-50%) translateY(0); opacity: 1; }
+        }
+
+        nav ul {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 25px;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--accent-purple);
+            background: rgba(139, 92, 246, 0.1);
+        }
+
+        .cat-emoji {
+            font-size: 20px;
+            animation: wiggle 2s ease-in-out infinite;
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(5deg); }
+            75% { transform: rotate(-5deg); }
+        }
+
+        /* Main container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 120px 20px 60px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Card styling */
+        .main-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.3),
+                0 0 0 1px rgba(139, 92, 246, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .main-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-purple), transparent);
+        }
+
+        /* Typography */
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin: 32px 0 16px 0;
+            color: var(--accent-blue);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        h3::before {
+            content: '▶';
+            font-size: 0.8em;
+            color: var(--accent-purple);
+        }
+
+        p {
+            margin-bottom: 16px;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        /* Links */
+        a {
+            color: var(--text-accent);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        a:hover {
+            color: var(--accent-purple);
+            text-shadow: 0 0 8px var(--shadow-glow);
+        }
+
+        a:visited {
+            color: var(--text-accent);
+        }
+
+        /* Lists */
+        ul {
+            margin: 16px 0;
+            padding-left: 20px;
+        }
+
+        li {
+            margin: 8px 0;
+            color: var(--text-secondary);
+            position: relative;
+        }
+
+        li::marker {
+            color: var(--accent-purple);
+        }
+
+        /* Dividers */
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+            margin: 32px 0;
+        }
+
+        /* Special sections */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 24px 0;
+        }
+
+        .tech-card {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.2);
+            border-color: var(--accent-purple);
+        }
+
+        .tech-card h4 {
+            color: var(--accent-purple);
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+
+        /* Games section */
+        .games-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 16px 0;
+        }
+
+        .game-tag {
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--accent-purple);
+            font-weight: 500;
+        }
+
+        /* Contact section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin: 20px 0;
+        }
+
+        .contact-item {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            padding: 16px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        /* 88x31 buttons */
+        .buttons-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 20px 0;
+            justify-content: center;
+        }
+
+        .buttons-grid img {
+            transition: all 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .buttons-grid img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 32px 0;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        .cat-text {
+            font-size: 1.2rem;
+            margin: 16px 0;
+            color: var(--accent-pink);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Code styling */
+        code, .mono {
+            font-family: 'JetBrains Mono', monospace;
+            background: rgba(139, 92, 246, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: var(--accent-purple);
+            font-size: 0.9em;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 16px;
+            }
+            
+            nav a {
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+            
+            .container {
+                padding: 100px 16px 40px;
+            }
+            
+            .main-card {
+                padding: 24px;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 <body>
-    <div class="meow1">
-        <div class="meow2">
-            <h2>Hey, welcome to my website!</h2>
-            <p>If you don’t know me already, I’m Tom! I mainly go under the name potato camputer or tom1212.</p>
-            <p>Some other info about me; British, UTC+1 timezone, sandcars &lt;3 and tech :3</p>
-            <p>Feel free to contact me and question me more!</p>
-            <hr style="border-top: dashed 1px;">
-            <h3>Music</h3>
-            <a href="https://www.last.fm/user/potatocamputer">LastFM</a>
-            <hr style="border-top: dashed 1px;">
-            <h3>Games</h3>
-            <p>Here's a list of gamering games that I like (not ordered):</p>
-            <p>Portal 1/2, Left 4 Dead 1/2, Half-Life 2, Half-Life EP 1/2</p>
-            <p>Portal: Revolution, Portal Stories: Mel</p>
-            <p>Teardown, BeamNG.drive, Celeste</p>
-            <hr style="border-top: dashed 1px;">
-            <h3>Contact</h3>
-            <p>Here's some methods you can use to contact me:</p>
-            <p>Discord - <a href="https://discord.com/users/1118973285766533250">tom1212.</a> (preferred)</p>
-            <p>Matrix - <span class="bluetext">@potato_camputr:nope.chat</span> (don't rlly check this)</p>
-            <hr style="border-top: dashed 1px;">
-            <h3>Main Computers:</h3>
-            <p>This is just info about my server, laptop and desktop pc</p>
-            <p>Other computers <a href="./computer.html">here</a></p>
-            <hr style="border-top: dashed 1px;">
-            <h3 id="laptop"><a href="https://support.apple.com/en-gb/111902">Laptop</a></h3>
-            <ul>
-                <l1>MacBook Pro 14" 2021</l1>
-                <li>CPU - Apple M1 Pro 8-CPU Cores 14-GPU Cores</li>
-                <li>RAM - 16GB</li>
-                <li>Storage - 512GB</li>
-            </ul>   
-            <hr style="border-top: dashed 1px;">
-            <h3 id="desktop"><a href="https://uk.pcpartpicker.com/list/WRxCqH">Desktop (Click for PCPartpicker list</a></h3>
-            <ul>
-                <li>Custom Built</li>
-                <li>CPU - <a href="https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-7-7700x.html">Ryzen 7 7700x</a></li>
-                <li>GPU - <a href="https://www.techpowerup.com/gpu-specs/asus-rog-matrix-gtx-980-platinum.b3152">GTX 980 4GB</a></li>
-                <li>RAM - <a href="https://uk.pcpartpicker.com/product/pnQKHx">64GB DDR5</a></li>
-                <li>Storage - <a href="https://uk.pcpartpicker.com/product/7nXJ7P">1TB Gen4 NVMe</a>, <a href="https://uk.pcpartpicker.com/product/crKKHx">2TB Gen 4 NVMe</a></li>
-                <li>PSU - <a href="https://uk.pcpartpicker.com/product/4ZRwrH">Corsair RM850e (2023)</a></li>
-            </ul>                       
-            <hr style="border-top: dashed 1px;">
-            <h3 id="server"><a href="https://uk.pcpartpicker.com/user/ThePotatoPerson/saved/#view=2BLGxr">Server (Click for PCPartpicker list)</a></h3>
-            <ul>
-                <li>Custom Built</li>
-                <li>CPU - <a href="https://www.amd.com/en/support/downloads/drivers.html/processors/ryzen/ryzen-3000-series/amd-ryzen-5-3600.html#amd_support_product_spec">Ryzen 5 3600</a></li>
-                <li>GPU - <a href="https://www.techpowerup.com/gpu-specs/pny-xlr8-gtx-1650-gaming-oc.b6906">Nvidia GTX 1650</a></li>
-                <li>RAM - 48GB DDR4</li>
-                <li>Storage - 512GB NVMe x2, 4TB HDD + 5x 500GB HDDs (NAS)</li>
-                <li>PSU - CV 450</li>
-                <li>CASE - <a href="https://www.scan.co.uk/products/codegen-4u-rackmount-server-case-500mm-deep-atx-micro-atx-mini-itx-2-x-usb-20">Codegen 4U 500mm</a></li>
-                    
-            </ul>
-            <hr style="border-top: dashed 1px;">
-            <h3>88x31s</h3>
-            <p>Links to other people :3</p>
-                <img src="./imgs/89x32/tom.png" alt="tom1212.">
-                <a href="https://restartb.xyz/" title="Restart" target="_blank"><img src="./imgs/89x32/Restart.png" alt="Restart"></a>
-                <a href="https://nikolan.xyz/" title="Nikolan" target="_blank"><img src="./imgs/89x32/nikolan.png" alt="Nikolan"></a>
-                <a href="https://binarytr.ee/" title="Paddyk45" target="_blank"><img src="./imgs/89x32/paddyk45.png" alt="Paddyk45"></a>
-                <br>
-                <a href="https://thecoolcats.xyz" title="coolcaty" target="_blank"><img src="./imgs/89x32/thecoolcats.png" alt="coolcaty"></a>
-                <a href="https://ees4.dev/" title="ees4" target="_blank"><img src="./imgs/89x32/ees4.png" alt="ees4"></a>
-                <a href="https://derg.rest/" title="tom_derg" target="_blank"><img src="https://derg.rest/88x31.gif" alt="tom_derg"></a>
-                <a href="https://ammr.win/" title="omr" target="_blank"><img src="./imgs/89x32/amr.gif" alt="omr"></a>
-                <br>
-                <a href="https://jaisal.dev/" title="atomic" target="_blank"><img src="./imgs/89x32/atomicbyte.gif" alt="atomic"></a>
-                <a href="https://ssi.fyi/" title="ssi :3" target="_blank"><img src="./imgs/89x32/ssi.gif" alt="ssi :3"></a>
-                <a href="https://nexy7574.co.uk/" title="nexy" target="_blank"><img src="./imgs/89x32/nexy.gif" alt="nexy"></a>
-                <img src="https://88x31.kate.pet/twopaws.png" height="31" />
-                <br>
-                <img src="./imgs/89x32/meow.png" alt="meow :3">
-                <a href="https://www.mozilla.org/en-GB/firefox/new/" title="Firefox" target="_blank"><img src="./imgs/89x32/firefox.gif" alt="Firefox"></a>
-            <br>
-<!--             <p> 
-                <a href="https://ring.ssi.fyi/previous?host=tomthepotato.xyz">←</a>
-                <a href="https://ring.ssi.fyi/">ssi webring</a>
-                <a href="https://ring.ssi.fyi/next?host=tomthepotato.xyz">→</a>
-            </p> -->
-            <p>mrrp mrrp mreow :3</p>
-            <p>View the source code maby? <a href="https://github.com/thepotatolover/thepotatolover.github.io">Github linky</a></p>
+    <nav>
+        <ul>
+            <li><span class="cat-emoji">🐱</span></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#games">Games</a></li>
+            <li><a href="#tech">Tech</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#friends">Friends</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="main-card">
+            <section id="about">
+                <h2>Hey, welcome to my website! 🥔</h2>
+                <p>If you don't know me already, I'm <strong>Tom</strong>! I mainly go under the name <code>potato camputer</code> or <code>tom1212</code>.</p>
+                <p>Some other info about me: British 🇬🇧, UTC+1 timezone, sandcars &lt;3 and tech :3</p>
+                <p>Feel free to contact me and question me more!</p>
+            </section>
+
+            <hr>
+
+            <section>
+                <h3>🎵 Music</h3>
+                <p>Check out my music taste on <a href="https://www.last.fm/user/potatocamputer">Last.FM</a> - always discovering new tunes!</p>
+            </section>
+
+            <hr>
+
+            <section id="games">
+                <h3>🎮 Games</h3>
+                <p>Here's a list of gaming games that I like (not ordered):</p>
+                <div class="games-grid">
+                    <span class="game-tag">Portal 1/2</span>
+                    <span class="game-tag">Left 4 Dead 1/2</span>
+                    <span class="game-tag">Half-Life 2</span>
+                    <span class="game-tag">Half-Life EP 1/2</span>
+                    <span class="game-tag">Portal: Revolution</span>
+                    <span class="game-tag">Portal Stories: Mel</span>
+                    <span class="game-tag">Teardown</span>
+                    <span class="game-tag">BeamNG.drive</span>
+                    <span class="game-tag">Celeste</span>
+                </div>
+            </section>
+
+            <hr>
+
+            <section id="contact">
+                <h3>📫 Contact</h3>
+                <p>Here's some methods you can use to contact me:</p>
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <strong>Discord</strong><br>
+                        <a href="https://discord.com/users/1118973285766533250">tom1212.</a><br>
+                        <small>(preferred)</small>
+                    </div>
+                    <div class="contact-item">
+                        <strong>Matrix</strong><br>
+                        <code>@potato_camputr:nope.chat</code><br>
+                        <small>(don't rlly check this)</small>
+                    </div>
+                </div>
+            </section>
+
+            <hr>
+
+            <section id="tech">
+                <h3>💻 Main Computers</h3>
+                <p>This is just info about my server, laptop and desktop pc</p>
+                <p>Other computers <a href="./computer.html">here</a></p>
+
+                <div class="tech-grid">
+                    <div class="tech-card" id="laptop">
+                        <h4>🍎 <a href="https://support.apple.com/en-gb/111902">MacBook Pro 14" 2021</a></h4>
+                        <ul>
+                            <li>CPU - Apple M1 Pro 8-CPU Cores 14-GPU Cores</li>
+                            <li>RAM - 16GB</li>
+                            <li>Storage - 512GB</li>
+                        </ul>
+                    </div>
+
+                    <div class="tech-card" id="desktop">
+                        <h4>🖥️ <a href="https://uk.pcpartpicker.com/list/WRxCqH">Desktop PC</a></h4>
+                        <ul>
+                            <li>CPU - <a href="https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-7-7700x.html">Ryzen 7 7700x</a></li>
+                            <li>GPU - <a href="https://www.techpowerup.com/gpu-specs/asus-rog-matrix-gtx-980-platinum.b3152">GTX 980 4GB</a></li>
+                            <li>RAM - <a href="https://uk.pcpartpicker.com/product/pnQKHx">64GB DDR5</a></li>
+                            <li>Storage - <a href="https://uk.pcpartpicker.com/product/7nXJ7P">1TB Gen4 NVMe</a>, <a href="https://uk.pcpartpicker.com/product/crKKHx">2TB Gen 4 NVMe</a></li>
+                            <li>PSU - <a href="https://uk.pcpartpicker.com/product/4ZRwrH">Corsair RM850e (2023)</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="tech-card" id="server">
+                        <h4>🖲️ <a href="https://uk.pcpartpicker.com/user/ThePotatoPerson/saved/#view=2BLGxr">Home Server</a></h4>
+                        <ul>
+                            <li>CPU - <a href="https://www.amd.com/en/support/downloads/drivers.html/processors/ryzen/ryzen-3000-series/amd-ryzen-5-3600.html#amd_support_product_spec">Ryzen 5 3600</a></li>
+                            <li>GPU - <a href="https://www.techpowerup.com/gpu-specs/pny-xlr8-gtx-1650-gaming-oc.b6906">Nvidia GTX 1650</a></li>
+                            <li>RAM - 48GB DDR4</li>
+                            <li>Storage - 512GB NVMe x2, 4TB HDD + 5x 500GB HDDs (NAS)</li>
+                            <li>PSU - CV 450</li>
+                            <li>CASE - <a href="https://www.scan.co.uk/products/codegen-4u-rackmount-server-case-500mm-deep-atx-micro-atx-mini-itx-2-x-usb-20">Codegen 4U 500mm</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <hr>
+
+            <section id="friends">
+                <h3>🔗 88x31s</h3>
+                <p>Links to other cool people :3</p>
+                <div class="buttons-grid">
+                    <img src="./imgs/89x32/tom.png" alt="tom1212." title="That's me!">
+                    <a href="https://restartb.xyz/" title="Restart" target="_blank"><img src="./imgs/89x32/Restart.png" alt="Restart"></a>
+                    <a href="https://nikolan.xyz/" title="Nikolan" target="_blank"><img src="./imgs/89x32/nikolan.png" alt="Nikolan"></a>
+                    <a href="https://binarytr.ee/" title="Paddyk45" target="_blank"><img src="./imgs/89x32/paddyk45.png" alt="Paddyk45"></a>
+                    <a href="https://thecoolcats.xyz" title="coolcaty" target="_blank"><img src="./imgs/89x32/thecoolcats.png" alt="coolcaty"></a>
+                    <a href="https://ees4.dev/" title="ees4" target="_blank"><img src="./imgs/89x32/ees4.png" alt="ees4"></a>
+                    <a href="https://derg.rest/" title="tom_derg" target="_blank"><img src="https://derg.rest/88x31.gif" alt="tom_derg"></a>
+                    <a href="https://ammr.win/" title="omr" target="_blank"><img src="./imgs/89x32/amr.gif" alt="omr"></a>
+                    <a href="https://jaisal.dev/" title="atomic" target="_blank"><img src="./imgs/89x32/atomicbyte.gif" alt="atomic"></a>
+                    <a href="https://ssi.fyi/" title="ssi :3" target="_blank"><img src="./imgs/89x32/ssi.gif" alt="ssi :3"></a>
+                    <a href="https://nexy7574.co.uk/" title="nexy" target="_blank"><img src="./imgs/89x32/nexy.gif" alt="nexy"></a>
+                    <img src="https://88x31.kate.pet/twopaws.png" height="31" alt="twopaws" />
+                    <img src="./imgs/89x32/meow.png" alt="meow :3">
+                    <a href="https://www.mozilla.org/en-GB/firefox/new/" title="Firefox" target="_blank"><img src="./imgs/89x32/firefox.gif" alt="Firefox"></a>
+                </div>
+            </section>
+
+            <div class="footer">
+                <div class="cat-text">mrrp mrrp mreow :3</div>
+                <p>View the source code maybe? <a href="https://github.com/thepotatolover/thepotatolover.github.io">Github linky</a></p>
+            </div>
         </div>
     </div>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add fade-in class to sections
+            document.querySelectorAll('section, .tech-card').forEach(el => {
+                el.classList.add('fade-in');
+                observer.observe(el);
+            });
+
+            // Add hover effects to tech cards
+            document.querySelectorAll('.tech-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-8px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(-4px) scale(1)';
+                });
+            });
+        });
+
+        // Easter egg: clicking cat emoji
+        document.querySelector('.cat-emoji').addEventListener('click', function() {
+            this.style.transform = 'rotate(360deg) scale(1.5)';
+            setTimeout(() => {
+                this.style.transform = 'rotate(0deg) scale(1)';
+            }, 500);
+        });
+    </script>
 </body>
 </html>
